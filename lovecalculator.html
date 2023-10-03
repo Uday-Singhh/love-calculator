@@ -27,15 +27,15 @@
 <body>
     <header>
         <div class="card w-50 m-auto text-center" >
-            <div class="card-header bg-danger text-white">LOVE CALCULATOR BY UDAY</div>
+            <div class="card-header bg-danger text-white">LOVE CALCULATOR DESIGNED BY UDAY</div>
             <div class="card-body">
                 <form class="form-inline m-auto">
                     <div class="form-group">
-                        <input type="text" name="" class="form-control text-center" placeholder="Your Name" >
+                        <input type="text" name="" class="form-control text-center" id="name" placeholder="Your Name" >
                     </div>
                     <div><span class="pl-3 pr-3">+</span></div>
                     <span class="form-group">
-                        <input type="text" name="" class="form-control text-center" placeholder="Love Name" >
+                        <input type="text" name="" class="form-control text-center" id="lname" placeholder="Love Name" >
                     </span>
                 </form >
                 <br>
@@ -53,10 +53,41 @@
     <script>
         function checkloveper()
         {
-            
-            var lovedata=Math.random()*100;
+            var name=document.getElementById('name').value;
+            var lname=document.getElementById('lname').value;
+            if(name=="")
+            {
+                alert('please enter your name');
+            }
+            else if(name.length<=2)
+            {
+                alert('minimun length of name is 3');
+            }
+            else if(!isNaN(name))
+            {
+                alert('number is not allowed as a name')
+            }
+            else if(lname=="")
+            {
+                alert('please enter your love name');
+            }
+            else if(lname.length<3)
+            {
+                alert('minimun length of name is 3');
+            }
+            else if(!isNaN(lname))
+            {
+                alert('number is not allowed as a name')
+            }
+            else if((name=="deepu" && lname=="nandu")||(name=="vinit" && lname=="mitali"))
+            {
+                document.getElementById('lovevalue').value="100"+"%";
+            }
+            else{
+                var lovedata=Math.random()*100;
             lovedata=Math.floor(lovedata);
             document.getElementById('lovevalue').value=lovedata+"%";
+             }
         }
     </script>
 </body>
